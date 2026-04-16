@@ -15,6 +15,7 @@
   - ForeColor로 글자색 바꾸기
   - FullRowSelect, GridLines로 파일 리스트 배치 형식 변경
   - IsNullOrWhiteSpace , !~~ 형식으로 공백이나 반대되는 경우의 수 감지
+  - foreach 재귀호출 기능 사용으로 폴더 내용까지 복사
 
 
 
