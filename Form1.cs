@@ -230,7 +230,7 @@ namespace FileCompare
                     {
                         try
                         {
-                            DirectoryCopy(sourceItemPath, destItemPath); // 우리가 만든 마법의 폴더 복사 함수 호출!
+                            DirectoryCopy(sourceItemPath, destItemPath); 
                         }
                         catch (Exception ex)
                         {
@@ -238,7 +238,7 @@ namespace FileCompare
                         }
                     }
                 }
-                // ✅ 2. 파일 복사 처리 (기존 로직과 거의 동일)
+                // ✅ 2. 파일 복사 처리 
                 else
                 {
                     bool shouldCopy = true;
