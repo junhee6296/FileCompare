@@ -14,6 +14,7 @@
   - 오류 발생 시 messagebox로 출력
   - ForeColor로 글자색 바꾸기
   - FullRowSelect, GridLines로 파일 리스트 배치 형식 변경
+  - IsNullOrWhiteSpace , !~~ 형식으로 공백이나 반대되는 경우의 수 감지
 
 
 
@@ -46,7 +47,6 @@
   - 폴더 리스트를 FullRowSelect, GridLines 설정하여 나열형이 아닌 위에서 아래로 리스트식으로 배치되게 함
   - Columns 설정으로 각 범주의 이름, 요소별 길이를 설정함
   - if문으로 왼쪽, 오른쪽 폴더를 비교군 삼아 충족하는 경우 ForeColor를 설정하여 색을 변경함
-  -  
 
 
 ## 실행 화면 (과제3)
@@ -55,8 +55,13 @@
 ![과제3 실행화면](img/3.png)
 
 - 과제 내용
-
+  - 파일 복사 기능 추가
+  - 파일 이름이 같거나, 이름이 같을 때 오래된 파일을 새 파일에 붙여넣으려 하는 경우 물어보게 함
+  - 폴더를 선택하지 않고 복사 버튼을 누를 경우 메시지박스로 알려줌
 - 구현 내용과 기능 설명
+  - IsNullOrWhiteSpace 나 !Directory.Exists 로 폴더 미선택 여부 감지
+  - destDate >= sourceDate 로 최신 파일 여부 감지
+  - File.Exists로 같은 이름 파일 감지
 
 
 

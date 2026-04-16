@@ -37,14 +37,14 @@
             panelleftup = new Panel();
             panel2 = new Panel();
             lblAppName = new Label();
-            btnCopyFromRight = new Button();
+            btnCopyFromLeft = new Button();
             panelrightdown = new Panel();
             lvwRightDir = new ListView();
             panelrightmiddle = new Panel();
             txtRightDir = new TextBox();
             btnRightDir = new Button();
             panelrightup = new Panel();
-            btnCopyFromLeft = new Button();
+            btnCopyFromRight = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -138,7 +138,7 @@
             panelleftup.BackColor = Color.FromArgb(255, 255, 192);
             panelleftup.Controls.Add(panel2);
             panelleftup.Controls.Add(lblAppName);
-            panelleftup.Controls.Add(btnCopyFromRight);
+            panelleftup.Controls.Add(btnCopyFromLeft);
             panelleftup.Location = new Point(0, 0);
             panelleftup.Name = "panelleftup";
             panelleftup.Size = new Size(396, 76);
@@ -161,16 +161,17 @@
             lblAppName.TabIndex = 3;
             lblAppName.Text = "File Compare";
             // 
-            // btnCopyFromRight
+            // btnCopyFromLeft
             // 
-            btnCopyFromRight.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnCopyFromRight.Font = new Font("서울남산체 L", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            btnCopyFromRight.Location = new Point(302, 24);
-            btnCopyFromRight.Name = "btnCopyFromRight";
-            btnCopyFromRight.Size = new Size(75, 35);
-            btnCopyFromRight.TabIndex = 1;
-            btnCopyFromRight.Text = ">>>";
-            btnCopyFromRight.UseVisualStyleBackColor = true;
+            btnCopyFromLeft.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCopyFromLeft.Font = new Font("서울남산체 L", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            btnCopyFromLeft.Location = new Point(302, 24);
+            btnCopyFromLeft.Name = "btnCopyFromLeft";
+            btnCopyFromLeft.Size = new Size(75, 35);
+            btnCopyFromLeft.TabIndex = 1;
+            btnCopyFromLeft.Text = ">>>";
+            btnCopyFromLeft.UseVisualStyleBackColor = true;
+            btnCopyFromLeft.Click += btnCopyFromLeft_Click;
             // 
             // panelrightdown
             // 
@@ -227,21 +228,22 @@
             // 
             panelrightup.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelrightup.BackColor = Color.FromArgb(192, 255, 192);
-            panelrightup.Controls.Add(btnCopyFromLeft);
+            panelrightup.Controls.Add(btnCopyFromRight);
             panelrightup.Location = new Point(3, 0);
             panelrightup.Name = "panelrightup";
             panelrightup.Size = new Size(394, 77);
             panelrightup.TabIndex = 6;
             // 
-            // btnCopyFromLeft
+            // btnCopyFromRight
             // 
-            btnCopyFromLeft.Font = new Font("서울남산체 L", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            btnCopyFromLeft.Location = new Point(17, 24);
-            btnCopyFromLeft.Name = "btnCopyFromLeft";
-            btnCopyFromLeft.Size = new Size(75, 35);
-            btnCopyFromLeft.TabIndex = 0;
-            btnCopyFromLeft.Text = "<<<";
-            btnCopyFromLeft.UseVisualStyleBackColor = true;
+            btnCopyFromRight.Font = new Font("서울남산체 L", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            btnCopyFromRight.Location = new Point(17, 24);
+            btnCopyFromRight.Name = "btnCopyFromRight";
+            btnCopyFromRight.Size = new Size(75, 35);
+            btnCopyFromRight.TabIndex = 0;
+            btnCopyFromRight.Text = "<<<";
+            btnCopyFromRight.UseVisualStyleBackColor = true;
+            btnCopyFromRight.Click += btnCopyFromRight_Click;
             // 
             // Form1
             // 
@@ -274,11 +276,11 @@
         private TextBox txtLeftDir;
         private Label lblAppName;
         private Button btnLeftDir;
-        private Button btnCopyFromRight;
+        private Button btnCopyFromLeft;
         private ListView lvwRightDir;
         private TextBox txtRightDir;
         private Button btnRightDir;
-        private Button btnCopyFromLeft;
+        private Button btnCopyFromRight;
         private Panel panelleftdown;
         private Panel panelleftup;
         private Panel panel2;

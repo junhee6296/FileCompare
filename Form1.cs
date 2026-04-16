@@ -173,5 +173,86 @@ namespace FileCompare
                 lv.EndUpdate(); // 업데이트 완료 
             }
         }
+
+        // >>> 버튼 (왼쪽에서 오른쪽으로 복사)
+        private void btnCopyFromLeft_Click(object sender, EventArgs e)
+        {
+            // 원본 리스트: lvwLeftDir, 대상 폴더 경로: txtRightDir, 원본 폴더 경로: txtLeftDir
+            CopySelectedFiles(lvwLeftDir, txtRightDir, txtLeftDir);
+        }
+
+        // <<< 버튼 (오른쪽에서 왼쪽으로 복사)
+        private void btnCopyFromRight_Click(object sender, EventArgs e)
+        {
+            // 원본 리스트: lvwRightDir, 대상 폴더 경로: txtLeftDir, 원본 폴더 경로: txtRightDir
+            CopySelectedFiles(lvwRightDir, txtLeftDir, txtRightDir);
+        }
+
+        private void CopySelectedFiles(ListView sourceListView, TextBox destTextBox, TextBox sourceTextBox)
+        {
+            string destPath = destTextBox.Text;
+            string sourceDir = sourceTextBox.Text;
+
+            // 대상 폴더가 비어있거나 존재하지 않으면 에러 메시지 띄우고 종료
+            if (string.IsNullOrWhiteSpace(destPath) || !Directory.Exists(destPath))
+            {
+                MessageBox.Show("대상 폴더를 먼저 선택해 주세요.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 선택된 항목이 없으면 그냥 리턴
+            if (sourceListView.SelectedItems.Count == 0) return;
+
+            foreach (ListViewItem item in sourceListView.SelectedItems)
+            {
+                // 폴더(<DIR>) 복사는 과제 4에서 다룰 거니까 일단 파일만 처리하도록 건너뜀
+                if (item.SubItems[1].Text == "<DIR>") continue;
+
+                string fileName = item.Text;
+                string sourceFile = Path.Combine(sourceDir, fileName); // 원본 파일 절대 경로
+                string destFile = Path.Combine(destPath, fileName);   // 대상 파일 절대 경로
+
+                bool shouldCopy = true;
+
+                // 덮어쓰기 로직: 대상 폴더에 이미 똑같은 이름의 파일이 있는지 확인
+                if (File.Exists(destFile))
+                {
+                    DateTime sourceDate = File.GetLastWriteTime(sourceFile);
+                    DateTime destDate = File.GetLastWriteTime(destFile);
+
+                    // 대상 파일이 더 최신이거나 시간이 같으면 경고창 띄우기
+                    if (destDate >= sourceDate)
+                    {
+                        string msg = $"대상에 동일한 이름의 파일이 이미 있거나 \n대상 파일이 더 신규 파일입니다. 덮어쓰시겠습니까?\n\n원본: {sourceFile}\n대상: {destFile}";
+                        DialogResult result = MessageBox.Show(msg, "덮어쓰기 확인", MessageBoxButtons.YesNo, MessageBoxIcon.Question); 
+
+                        // 사용자가 '아니요'를 누르면 복사 안 함
+                        if (result == DialogResult.No)
+                        {
+                            shouldCopy = false;
+                        }
+                    }
+                }
+
+                // 복사 실행
+                if (shouldCopy)
+                {
+                    try
+                    {
+                        // true 옵션을 주면 무조건 덮어쓰기를 허용함
+                        File.Copy(sourceFile, destFile, true);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"'{fileName}' 복사 중 에러 발생:\n{ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+            // 파일 복사가 다 끝났으니 양쪽 폴더 목록을 최신화하고 다시 색상 비교를 해줌!
+            PopulateListView(lvwLeftDir, txtLeftDir.Text);
+            PopulateListView(lvwRightDir, txtRightDir.Text);
+            CompareFiles();
+        }
     }
 }
