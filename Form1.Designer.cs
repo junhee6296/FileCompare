@@ -29,32 +29,32 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
-            panel1 = new Panel();
+            panelleftmiddle = new Panel();
             txtLeftDir = new TextBox();
             btnLeftDir = new Button();
-            pannelleftdown = new Panel();
+            panelleftdown = new Panel();
             lvwLeftDir = new ListView();
-            pannelleftup = new Panel();
+            panelleftup = new Panel();
             panel2 = new Panel();
             lblAppName = new Label();
             btnCopyFromRight = new Button();
-            pannelrightdown = new Panel();
+            panelrightdown = new Panel();
             lvwRightDir = new ListView();
             panelrightmiddle = new Panel();
             txtRightDir = new TextBox();
             btnRightDir = new Button();
-            pannelrightup = new Panel();
+            panelrightup = new Panel();
             btnCopyFromLeft = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
-            panel1.SuspendLayout();
-            pannelleftdown.SuspendLayout();
-            pannelleftup.SuspendLayout();
-            pannelrightdown.SuspendLayout();
+            panelleftmiddle.SuspendLayout();
+            panelleftdown.SuspendLayout();
+            panelleftup.SuspendLayout();
+            panelrightdown.SuspendLayout();
             panelrightmiddle.SuspendLayout();
-            pannelrightup.SuspendLayout();
+            panelrightup.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -67,30 +67,30 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.BackColor = Color.FromArgb(128, 255, 255);
-            splitContainer1.Panel1.Controls.Add(panel1);
-            splitContainer1.Panel1.Controls.Add(pannelleftdown);
-            splitContainer1.Panel1.Controls.Add(pannelleftup);
+            splitContainer1.Panel1.Controls.Add(panelleftmiddle);
+            splitContainer1.Panel1.Controls.Add(panelleftdown);
+            splitContainer1.Panel1.Controls.Add(panelleftup);
             // 
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackColor = Color.FromArgb(192, 255, 255);
-            splitContainer1.Panel2.Controls.Add(pannelrightdown);
+            splitContainer1.Panel2.Controls.Add(panelrightdown);
             splitContainer1.Panel2.Controls.Add(panelrightmiddle);
-            splitContainer1.Panel2.Controls.Add(pannelrightup);
+            splitContainer1.Panel2.Controls.Add(panelrightup);
             splitContainer1.Size = new Size(800, 450);
             splitContainer1.SplitterDistance = 398;
             splitContainer1.TabIndex = 0;
             // 
-            // panel1
+            // panelleftmiddle
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.FromArgb(255, 255, 192);
-            panel1.Controls.Add(txtLeftDir);
-            panel1.Controls.Add(btnLeftDir);
-            panel1.Location = new Point(0, 82);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(396, 37);
-            panel1.TabIndex = 7;
+            panelleftmiddle.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelleftmiddle.BackColor = Color.FromArgb(255, 255, 192);
+            panelleftmiddle.Controls.Add(txtLeftDir);
+            panelleftmiddle.Controls.Add(btnLeftDir);
+            panelleftmiddle.Location = new Point(0, 82);
+            panelleftmiddle.Name = "panelleftmiddle";
+            panelleftmiddle.Size = new Size(396, 37);
+            panelleftmiddle.TabIndex = 7;
             // 
             // txtLeftDir
             // 
@@ -113,15 +113,15 @@
             btnLeftDir.UseVisualStyleBackColor = true;
             btnLeftDir.Click += btnLeftDir_Click;
             // 
-            // pannelleftdown
+            // panelleftdown
             // 
-            pannelleftdown.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pannelleftdown.BackColor = Color.FromArgb(255, 255, 192);
-            pannelleftdown.Controls.Add(lvwLeftDir);
-            pannelleftdown.Location = new Point(0, 125);
-            pannelleftdown.Name = "pannelleftdown";
-            pannelleftdown.Size = new Size(399, 325);
-            pannelleftdown.TabIndex = 6;
+            panelleftdown.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelleftdown.BackColor = Color.FromArgb(255, 255, 192);
+            panelleftdown.Controls.Add(lvwLeftDir);
+            panelleftdown.Location = new Point(0, 125);
+            panelleftdown.Name = "panelleftdown";
+            panelleftdown.Size = new Size(399, 325);
+            panelleftdown.TabIndex = 6;
             // 
             // lvwLeftDir
             // 
@@ -132,17 +132,17 @@
             lvwLeftDir.TabIndex = 0;
             lvwLeftDir.UseCompatibleStateImageBehavior = false;
             // 
-            // pannelleftup
+            // panelleftup
             // 
-            pannelleftup.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pannelleftup.BackColor = Color.FromArgb(255, 255, 192);
-            pannelleftup.Controls.Add(panel2);
-            pannelleftup.Controls.Add(lblAppName);
-            pannelleftup.Controls.Add(btnCopyFromRight);
-            pannelleftup.Location = new Point(0, 0);
-            pannelleftup.Name = "pannelleftup";
-            pannelleftup.Size = new Size(396, 76);
-            pannelleftup.TabIndex = 5;
+            panelleftup.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelleftup.BackColor = Color.FromArgb(255, 255, 192);
+            panelleftup.Controls.Add(panel2);
+            panelleftup.Controls.Add(lblAppName);
+            panelleftup.Controls.Add(btnCopyFromRight);
+            panelleftup.Location = new Point(0, 0);
+            panelleftup.Name = "panelleftup";
+            panelleftup.Size = new Size(396, 76);
+            panelleftup.TabIndex = 5;
             // 
             // panel2
             // 
@@ -172,15 +172,15 @@
             btnCopyFromRight.Text = ">>>";
             btnCopyFromRight.UseVisualStyleBackColor = true;
             // 
-            // pannelrightdown
+            // panelrightdown
             // 
-            pannelrightdown.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pannelrightdown.BackColor = Color.FromArgb(192, 255, 192);
-            pannelrightdown.Controls.Add(lvwRightDir);
-            pannelrightdown.Location = new Point(3, 125);
-            pannelrightdown.Name = "pannelrightdown";
-            pannelrightdown.Size = new Size(394, 325);
-            pannelrightdown.TabIndex = 8;
+            panelrightdown.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelrightdown.BackColor = Color.FromArgb(192, 255, 192);
+            panelrightdown.Controls.Add(lvwRightDir);
+            panelrightdown.Location = new Point(3, 125);
+            panelrightdown.Name = "panelrightdown";
+            panelrightdown.Size = new Size(394, 325);
+            panelrightdown.TabIndex = 8;
             // 
             // lvwRightDir
             // 
@@ -223,15 +223,15 @@
             btnRightDir.UseVisualStyleBackColor = true;
             btnRightDir.Click += btnRightDir_Click;
             // 
-            // pannelrightup
+            // panelrightup
             // 
-            pannelrightup.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pannelrightup.BackColor = Color.FromArgb(192, 255, 192);
-            pannelrightup.Controls.Add(btnCopyFromLeft);
-            pannelrightup.Location = new Point(3, 0);
-            pannelrightup.Name = "pannelrightup";
-            pannelrightup.Size = new Size(394, 77);
-            pannelrightup.TabIndex = 6;
+            panelrightup.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelrightup.BackColor = Color.FromArgb(192, 255, 192);
+            panelrightup.Controls.Add(btnCopyFromLeft);
+            panelrightup.Location = new Point(3, 0);
+            panelrightup.Name = "panelrightup";
+            panelrightup.Size = new Size(394, 77);
+            panelrightup.TabIndex = 6;
             // 
             // btnCopyFromLeft
             // 
@@ -255,15 +255,15 @@
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            pannelleftdown.ResumeLayout(false);
-            pannelleftup.ResumeLayout(false);
-            pannelleftup.PerformLayout();
-            pannelrightdown.ResumeLayout(false);
+            panelleftmiddle.ResumeLayout(false);
+            panelleftmiddle.PerformLayout();
+            panelleftdown.ResumeLayout(false);
+            panelleftup.ResumeLayout(false);
+            panelleftup.PerformLayout();
+            panelrightdown.ResumeLayout(false);
             panelrightmiddle.ResumeLayout(false);
             panelrightmiddle.PerformLayout();
-            pannelrightup.ResumeLayout(false);
+            panelrightup.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -279,12 +279,12 @@
         private TextBox txtRightDir;
         private Button btnRightDir;
         private Button btnCopyFromLeft;
-        private Panel pannelleftdown;
-        private Panel pannelleftup;
+        private Panel panelleftdown;
+        private Panel panelleftup;
         private Panel panel2;
         private Panel panelrightmiddle;
-        private Panel pannelrightup;
-        private Panel pannelrightdown;
-        private Panel panel1;
+        private Panel panelrightup;
+        private Panel panelrightdown;
+        private Panel panelleftmiddle;
     }
 }

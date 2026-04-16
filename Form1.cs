@@ -25,7 +25,62 @@ namespace FileCompare
             lvwRightDir.Columns.Add("크기", 100);
             lvwRightDir.Columns.Add("수정일", 160);
         }
+        private void CompareFiles()
+        {
+            // 양쪽 폴더가 모두 선택되어 리스트뷰에 항목이 있을 때만 비교를 진행
+            if (lvwLeftDir.Items.Count == 0 || lvwRightDir.Items.Count == 0) return;
 
+            // 1. 초기화: 일단 모든 항목을 '단독 파일'로 간주하고 보라색으로 칠함 
+            foreach (ListViewItem item in lvwLeftDir.Items) item.ForeColor = Color.Purple;
+            foreach (ListViewItem item in lvwRightDir.Items) item.ForeColor = Color.Purple;
+
+            // 2. 왼쪽 리스트뷰를 기준으로 오른쪽 리스트뷰와 비교
+            foreach (ListViewItem leftItem in lvwLeftDir.Items)
+            {
+                // 폴더(<DIR>)는 색상 비교에서 제외
+                if (leftItem.SubItems[1].Text == "<DIR>") continue;
+
+                string fileName = leftItem.Text;
+
+                // 오른쪽 리스트뷰에서 똑같은 이름의 파일 찾기
+                ListViewItem rightItem = null;
+                foreach (ListViewItem item in lvwRightDir.Items)
+                {
+                    if (item.Text == fileName && item.SubItems[1].Text != "<DIR>")
+                    {
+                        rightItem = item;
+                        break;
+                    }
+                }
+
+                // 3. 동일한 이름의 파일이 양쪽에 다 있다면 
+                if (rightItem != null)
+                {
+                    // 리스트뷰에 텍스트로 저장된 수정일 글자를 다시 시간(DateTime)으로 변환하여 비교
+                    DateTime leftDate = DateTime.Parse(leftItem.SubItems[2].Text);
+                    DateTime rightDate = DateTime.Parse(rightItem.SubItems[2].Text);
+
+                    if (leftDate == rightDate)
+                    {
+                        // 1단계: 완전히 동일한 파일 - 양쪽 모두 검은색 
+                        leftItem.ForeColor = Color.Black;
+                        rightItem.ForeColor = Color.Black;
+                    }
+                    else if (leftDate > rightDate)
+                    {
+                        // 2단계: 왼쪽이 더 최신 파일 - 최신은 빨간색, 이전은 회색 
+                        leftItem.ForeColor = Color.Red;
+                        rightItem.ForeColor = Color.Gray;
+                    }
+                    else
+                    {
+                        // 2단계: 오른쪽이 더 최신 파일 - 최신은 빨간색, 이전은 회색 
+                        leftItem.ForeColor = Color.Gray;
+                        rightItem.ForeColor = Color.Red;
+                    }
+                }
+            }
+        }
         private void btnLeftDir_Click(object sender, EventArgs e)
         {
             using (var dlg = new FolderBrowserDialog())
@@ -43,6 +98,8 @@ namespace FileCompare
                 {
                     txtLeftDir.Text = dlg.SelectedPath; // 선택한 경로를 TextBox에 표시 
                     PopulateListView(lvwLeftDir, dlg.SelectedPath); // 리스트 뷰 업데이트 함수 호출 
+
+                    CompareFiles();
                 }
             }
         }
@@ -62,7 +119,9 @@ namespace FileCompare
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
                     txtRightDir.Text = dlg.SelectedPath; 
-                    PopulateListView(lvwRightDir, dlg.SelectedPath); 
+                    PopulateListView(lvwRightDir, dlg.SelectedPath);
+
+                    CompareFiles();
                 }
             }
         }
@@ -82,7 +141,7 @@ namespace FileCompare
                 foreach (var d in dirs)
                 {
                     var item = new ListViewItem(d.Name); 
-                    item.SubItems.Add("<DIR>"); // 폴더는 크기 대신 <DIR> 표시 [cite: 617]
+                    item.SubItems.Add("<DIR>"); // 폴더는 크기 대신 <DIR> 표시 
                     item.SubItems.Add(d.LastWriteTime.ToString("g")); // 수정일 표시 
                     lv.Items.Add(item); 
                 }
@@ -111,7 +170,7 @@ namespace FileCompare
             }
             finally
             {
-                lv.EndUpdate(); // 업데이트 완료 [cite: 646]
+                lv.EndUpdate(); // 업데이트 완료 
             }
         }
     }
