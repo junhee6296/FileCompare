@@ -11,7 +11,9 @@
   - Visual Studio를 이용하여 UI 디자인
   - splitview 기능을 통한 파일 분할
   - 폴더를 선택할 수 있는 버튼 추가
-  - 
+  - 오류 발생 시 messagebox로 출력
+  - ForeColor로 글자색 바꾸기
+  - FullRowSelect, GridLines로 파일 리스트 배치 형식 변경
 
 
 
@@ -39,9 +41,12 @@
   - 폴더 선택 기능 추가
   - 이름이 같은 파일 최신 파일 색 구분 추가
   - 같은 파일 색 구분 기능 추가
-  - listview 보기 좋게 디자인
+  - listview로 보기 좋게 디자인
 - 구현 내용과 기능 설명
-  - 
+  - 폴더 리스트를 FullRowSelect, GridLines 설정하여 나열형이 아닌 위에서 아래로 리스트식으로 배치되게 함
+  - Columns 설정으로 각 범주의 이름, 요소별 길이를 설정함
+  - if문으로 왼쪽, 오른쪽 폴더를 비교군 삼아 충족하는 경우 ForeColor를 설정하여 색을 변경함
+  -  
 
 
 ## 실행 화면 (과제3)
